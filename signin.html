@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <!-- <title>Multi storey Parking Lot system</title> -->
+       <title>Add a Title here</title>
+        
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+           
+       <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    -->
+           <!-- MATERIAL DESIGN ICONIC FONT -->
+       <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+               
+               <!-- STYLE CSS -->
+       <link rel="stylesheet" href="design_files/css/style.css">
+
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-storage.js"></script>
+    </head>
+    <body>
+        <!-- <h3>Welcome to Multi-storey parking lot system</h3> -->
+        <div class="wrapper" style="background-image: url('design_files/images/registerback-1.jpg')">
+           <div class="inner">
+               <div class="image-holder">
+                   <img src="design_files/images/registration-form-2.jpg">
+               </div>
+            <form action="">
+                <h3>
+                    Parking Lot System
+                </h3>
+                <div class="form-wrapper">
+                    <input id="username" type="text" placeholder="Enter your name" class="form-control">
+                </div>
+                <div class="form-wrapper">
+                    <input id="mobile" type="number" placeholder="Phone number" class="form-control">
+                </div>
+                <div class="form-wrapper">
+                    <input id="regno" type="text" placeholder="Vehicle Registration Number" class="form-control">
+                </div>
+                <div class="form-wrapper">
+                    <!-- <label for="cars">Choose a car:</label> -->
+                    <div class="form-control">
+                    <select name="vehtype" id="vehtype" placeholder="Select Vehicle Type">
+                      <option value="Motorcycle">Motorcycle</option>
+                      <option value="Bus">Bus</option>
+                      <option value="Car">Car</option>
+                    
+                    </select>
+                    </div>
+                    <!-- <br><br> -->
+                  
+                    <!-- <i class="zmdi zmdi"></i> -->
+                    <!-- <i class="zmdi" src="design_files/images/drop-down-arrow (1).png"></i> -->
+                    <!-- <span class="material-icons">
+                        keyboard_arrow_down
+                        </span> -->
+                </div>
+                <div class="form-group container-login100-form-btn">
+                    <button id="btn-veh" type="button">
+                        Submit
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+        
+    <script src="nodejs/index.js"></script>
+    <!-- <script>
+        firebase.database().ref
+    </script> -->
+    </body>
+</html>

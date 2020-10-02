@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <!-- <title>Multi storey Parking Lot system</title> -->
+       <title>Add a Title here</title>
+        
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+           
+       <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    -->
+           <!-- MATERIAL DESIGN ICONIC FONT -->
+       <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+               
+               <!-- STYLE CSS -->
+       <link rel="stylesheet" href="design_files/css/style.css">
+
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-storage.js"></script>
+    </head>
+    <body>
+        <!-- <h3>Welcome to Multi-storey parking lot system</h3> -->
+        <div class="wrapper" style="background-image: url('design_files/images/registerback-1.jpg')">
+           <div class="inner">
+               <div class="image-holder">
+                   <img src="design_files/images/registration-form-2.jpg">
+               </div>
+            <form action="">
+                <h3>
+                    Registration Number
+                </h3>
+                <div class="form-wrapper">
+                    <input id="regi-num" type="text" placeholder="Your Vehicle's Registration Number" class="form-control">
+                </div>
+                
+              
+                <div class="form-group container-login100-form-btn">
+                    <button id="btn-search" type="button">
+                        Search
+                        
+                    </button><br><br>
+                    <!-- <p>{{}}</p> -->
+                    <p id="demo"></p><br>
+                    <p id="demo2"></p><br>
+                </div>
+
+                <div class="form-group container-login100-form-btn">
+                    <button onclick="getvehiclecount()" type="button">
+                        Number of vehicles parked
+                    </button><br><br>
+                    <!-- <p>{{}}</p> -->
+                    <p id="veh"></p><br>
+                    <p id="veh1"></p><br>
+                    <p id="veh2"></p><br>
+                </div>
+            </form>
+            </div>
+        </div>
+        
+    <script src="nodejs/search.js">
+   
+    </script>
+    <!-- <script>
+        firebase.database().ref
+    </script> -->
+    </body>
+</html>
