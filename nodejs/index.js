@@ -93,9 +93,6 @@ if (layers != null && rows != null) {
     //   console.log(snapshot.val());
       var newPost = snapshot.val();
 
-    //   console.log("reg nos"+ newPost['Registration Number']);
-    //   console.log("reg nos vehicle type"+ newPost['Vehicle Type']);
-    // var strijson = JSON.stringify(newPost);
     if(newPost['Vehicle Type']== "Bus"){
         bcount = bcount + 1;
         // console.log("Number of busses so far" + bcount);
@@ -132,12 +129,7 @@ if (layers != null && rows != null) {
      var j;
      var l= Number(layers);
      var r = Number(rows);
-    //  var arr = new Array();
-    //  for(i=0;i<layers;i++){
-    //      for(j=0;j<rows;j++){
-    //          arr[i][j]=0;
-    //      }
-    //  }
+
     if (localStorage.getItem("parking slots") == null) {
      var arr = new Array(l); // create an empty array of length n
 for (var i = 0; i < l; i++) {
@@ -154,13 +146,9 @@ for (var i = 0; i < l; i++) {
         for (var i = 0; i < l; i++) {
           arr[i] = new Array(r); // make each element an array
         }
-        // for(i=0;i<l;i++){
-        //     for(j=0;j<r;j++){
-
-        //     }
-        // }
+  
         for (var i = 0; i < l; i++){
-          // for(var j=0;j<r;j++){
+      
    arr[i] = user[i].slice();
     
           }
@@ -176,13 +164,13 @@ console.log(arr);
     for(i=0;i<l;i++){
         if(vehtype == "Bus"){
             for(j=0;j<5;j++){
-               
+               //A Bus can only ocupy any of the five spaces in a row.Here, I assumed the first 5 rows are dedicated to parking a bus alone.
                 if(arr[i][j] == null || arr[i][j] == " "){
                 arr[i][j]= regno;
                 console.log("inside bus parking",i,j);
                 window.alert("your parking slot is:" + " "+"Level-" + i +","+"Row" + j);
                 localStorage.setItem("parking slots",JSON.stringify(arr));
-                // userRef.child('mike').update({'dateOfBirth': moment(value.dateOfBirth).toDate().getTime()})
+             
                 firebase.database().ref('/vehicles/' + regno).update({"Level" : i});
                 firebase.database().ref('/vehicles/' + regno).update({"Row" : j});
                 // firebase.database().ref('/vehicles/' + regno +'/Row').update(j);
@@ -194,8 +182,8 @@ console.log(arr);
          }
          else if(vehtype == "Motorcycle"){
            console.log("motorcycle");
-          for(j=5;j<r;j++){
-               
+          for(j=0;j<r;j++){
+               //A motorcycle can be parked in any of the existing spaces. So no particular boundaries
             if(arr[i][j] == null || arr[i][j] == " "){
             arr[i][j]= regno;
             console.log("inside motorcycle parking",i,j);
@@ -210,15 +198,15 @@ console.log(arr);
             }
          }
          }
-        else {
-          for(j=n2;j<r;j++){
+        else {  //A car can occupy any of the Small compact/large spots which are rows-5
+          for(j=5;j<r;j++){
                
             if(arr[i][j] == null || arr[i][j] == " "){
             arr[i][j]= regno;
             console.log("inside car parking",i,j);
             localStorage.setItem("parking slots",JSON.stringify(arr));
             window.alert("your parking slot is:" + " "+"Level-" + i +","+"Row" + j);
-            // userRef.child('mike').update({'dateOfBirth': moment(value.dateOfBirth).toDate().getTime()})
+          
             firebase.database().ref('/vehicles/').child(regno).update({"Level" : i});
             firebase.database().ref('/vehicles/').child(regno).update({"Row" : j});
             // firebase.database().ref('/vehicles/' + regno +'/Row').update(j);
