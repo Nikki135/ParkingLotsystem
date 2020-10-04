@@ -2,7 +2,7 @@
 <html>
     <head>
        <!-- <title>Multi storey Parking Lot system</title> -->
-       <title>Add a Title here</title>
+       <title>Parking Lot System</title>
         
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
@@ -28,10 +28,13 @@
                </div>
             <form action="">
                 <h3>
-                    Registration Number
+                   Find Registration number from parking slot
                 </h3>
                 <div class="form-wrapper">
-                    <input id="regi-num" type="text" placeholder="Your Vehicle's Registration Number" class="form-control">
+                    <input id="lev-num" type="text" placeholder="Your Vehicle's Level Number" class="form-control">
+                </div>
+                <div class="form-wrapper">
+                    <input id="row-num" type="text" placeholder="Your Vehicle's Row Number" class="form-control">
                 </div>
                 
               
@@ -45,20 +48,12 @@
                     <p id="demo2"></p><br>
                 </div>
 
-                <div class="form-group container-login100-form-btn">
-                    <button onclick="getvehiclecount()" type="button">
-                        Number of vehicles parked
-                    </button><br><br>
-                    <!-- <p>{{}}</p> -->
-                    <p id="veh"></p><br>
-                    <p id="veh1"></p><br>
-                    <p id="veh2"></p><br>
-                </div>
+              
             </form>
             </div>
         </div>
         
-    <script src="nodejs/search.js">
+    <script src="nodejs/searchbyslot.js">
    
     </script>
     <!-- <script>

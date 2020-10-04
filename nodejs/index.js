@@ -145,8 +145,11 @@ for (var i = 0; i < l; i++) {
 }
     }
     else{
-        var user = localStorage.getItem("parking slots");
-        console.log("local storaeg" + user);
+        var user = JSON.parse(localStorage.getItem("parking slots"));
+        // var filuser= JSON.parse(localStorage.getItem("parking slots"));
+        console.log("local storaeg 1" + user[1]);
+        console.log("local storaeg " + user[1]);
+        // console.log("stringified" + filuser);
         var arr = new Array(l); // create an empty array of length n
         for (var i = 0; i < l; i++) {
           arr[i] = new Array(r); // make each element an array
@@ -157,10 +160,17 @@ for (var i = 0; i < l; i++) {
         //     }
         // }
         for (var i = 0; i < l; i++){
-    newArray[i] = user[i].slice();
-    console.log()
-    }
+          // for(var j=0;j<r;j++){
+   arr[i] = user[i].slice();
+    
+          }
+    // }
+    console.log("Copied Array"+arr);
+  }
 // let arr = Array(layers).fill().map(() => Array(rows));
+var n = r/2;
+var n1 = Math.ceil(n);
+var n2 = 5+n1;
 console.log(arr);
     Loop1:
     for(i=0;i<l;i++){
@@ -170,14 +180,52 @@ console.log(arr);
                 if(arr[i][j] == null || arr[i][j] == " "){
                 arr[i][j]= regno;
                 console.log("inside bus parking",i,j);
+                window.alert("your parking slot is:" + " "+"Level-" + i +","+"Row" + j);
                 localStorage.setItem("parking slots",JSON.stringify(arr));
-                firebase.database().ref('/vehicles/' + regno +'/Level').set(i);
-                firebase.database().ref('/vehicles/' + regno +'/Row').set(j);
+                // userRef.child('mike').update({'dateOfBirth': moment(value.dateOfBirth).toDate().getTime()})
+                firebase.database().ref('/vehicles/' + regno).update({"Level" : i});
+                firebase.database().ref('/vehicles/' + regno).update({"Row" : j});
+                // firebase.database().ref('/vehicles/' + regno +'/Row').update(j);
                 //   break;
                   break Loop1;
                 }
              }
             //  break;
+         }
+         else if(vehtype == "Motorcycle"){
+           console.log("motorcycle");
+          for(j=5;j<r;j++){
+               
+            if(arr[i][j] == null || arr[i][j] == " "){
+            arr[i][j]= regno;
+            console.log("inside motorcycle parking",i,j);
+            window.alert("your parking slot is:" + " "+"Level-" + i +","+"Row" + j);
+            localStorage.setItem("parking slots",JSON.stringify(arr));
+            
+            firebase.database().ref('/vehicles/').child(regno).update({"Level" : i});
+            firebase.database().ref('/vehicles/').child(regno).update({"Row" : j});
+            // firebase.database().ref('/vehicles/' + regno +'/Row').update(j);
+            //   break;
+              break Loop1;
+            }
+         }
+         }
+        else {
+          for(j=n2;j<r;j++){
+               
+            if(arr[i][j] == null || arr[i][j] == " "){
+            arr[i][j]= regno;
+            console.log("inside car parking",i,j);
+            localStorage.setItem("parking slots",JSON.stringify(arr));
+            window.alert("your parking slot is:" + " "+"Level-" + i +","+"Row" + j);
+            // userRef.child('mike').update({'dateOfBirth': moment(value.dateOfBirth).toDate().getTime()})
+            firebase.database().ref('/vehicles/').child(regno).update({"Level" : i});
+            firebase.database().ref('/vehicles/').child(regno).update({"Row" : j});
+            // firebase.database().ref('/vehicles/' + regno +'/Row').update(j);
+            //   break;
+              break Loop1;
+            }
+         }
          }
   
           }
